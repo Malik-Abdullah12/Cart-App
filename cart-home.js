@@ -8,3 +8,23 @@
 //         show_content.className = "dropdown-content"
 //     }
 // })
+
+
+// const link_button = document.querySelectorAll(".nav-link")
+
+
+// link_button.forEach(link=>{
+//     link.addEventListener("click",(e)=>{
+//         e.preventDefault()
+//         console.log(link.textContent + " clicked")
+//         if(window.location === "cart-home.html"){
+//             window.location === "cart.html"
+//         }
+//         else{
+//             window.location === "cart-home.html"
+//         }
+//     });
+// });
+
+
+

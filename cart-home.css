@@ -44,16 +44,18 @@ body {
 .nav-link{
   color: grey;
   text-decoration: none;
-  margin-left: 15px;
+  /* margin-left: 15px; */
+  padding: 10px;
 }
 
 .nav-link:hover{
   color: #afafaf;
 
 }
-.nav-link:active{
-  color: #afafaf;
 
+.nav-link[href="cart-home.html"]{
+   font-weight: bold;
+  color: #c0bfbf;
 }
 
 #sign-out-link{
