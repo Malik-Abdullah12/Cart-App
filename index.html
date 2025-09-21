@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-------------------- Metas ------------------------>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-------------------- Title ----------------------->
+    <title>Cart App</title>
+    <!-------------------- Links --------------------->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!------------------------------------------------------- Main Contaier ------------------------------------->
+    <div id="form-container">
+      <!------------------------------------------------------- Content Header ------------------------------------->
+      <h2 id="heading1">Log In</h2>
+
+      <!------------------------------------------------------- Form1 ------------------------------------->
+      <form action="" id="form1">
+        <label for="email1" id="label-user"
+          >Email <br />
+          <input
+            type="email"
+            id="email1"
+            class="form-field"
+            placeholder="plz enter email"
+          /><br />
+        </label>
+
+        <label for="password1" id="label-pass"
+          >Password <br />
+          <input
+            type="password"
+            id="password1"
+            class="form-field"
+            placeholder="plz enter password"
+          /><br />
+          <button id="show">show</button>
+        </label>
+
+        <!------------------------------------------------------- Form footer ------------------------------------->
+        <div class="login-button">
+          <input type="submit" value="Login" id="submitbtn" />
+        </div>
+      </form>
+      <br /><br />
+      <div class="signin-btn">
+        No account? <a href="signup.html" class="signin-link"> Create one</a>
+      </div>
+    </div>
+
+    <!----------------------------------------------------- Script ------------------------------->
+    <script src="index.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--------------------------- Metas ------------------------------->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!--------------------------- Title ------------------------------->
+    <title>Cart App</title>
+    <!-------------------- Links ------------------------------->
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <!----------------------------------------------------- Main container  ------------------------------->
+    <div id="signup-form-container">
+      <!----------------------------------------------------- header ------------------------------->
+      <div id="header"><h2>Register</h2></div>
+      <!----------------------------------------------------- Form Body ------------------------------->
+      <div id="form-body">
+        <form>
+          <div class="row1">
+            <div class="col1">
+              <label for="firstname" class="label-first"
+                ><strong>First Name</strong>
+                <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  placeholder="First Name"
+                />
+              </label>
+            </div>
+            <div class="col2">
+              <label for="lastname" class="label-last">
+                <strong>Last Name</strong>
+                <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  placeholder="Last Name"
+              /></label>
+            </div>
+          </div>
+
+          <div class="email-field">
+            <label for="email2" class="lables"><strong>Email</strong></label>
+            <input type="email" name="email" id="email2" placeholder="Email" />
+          </div>
+
+          <div class="pass-field">
+            <label for="password2" class="lables"
+              ><strong>Password</strong></label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password2"
+              placeholder="Password"
+            />
+            <div class="show-btn"><button id="show1">show</button></div>
+          </div>
+          <div class="login-opt">
+            Already have an account?
+            <a href="index.html" class="a-login">Login</a>
+          </div>
+          <!----------------------------------------------------- Form footer ------------------------------->
+          <div id="form-footer">
+            <input type="submit" value="Sign Up" id="signup-btn" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="signup.js"></script>
+  </body>
+</html>

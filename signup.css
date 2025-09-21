@@ -1,0 +1,201 @@
+body {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  /* background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(62 62 62) 96.86%); */
+  background-color: rgba(33,37,41,1);
+}
+
+#signup-form-container {
+  /* width: 400px;
+  height: 400px; */
+  width: 514px;
+  height: 472px;
+  border-radius: 20px;
+  background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(41 41 41) 96.86%);
+  border: none;
+  /* text-align: center; */
+  transition: transform 0.3s;
+}
+#signup-form-container:hover {
+  transform: translateY(-8px);
+  /* box-shadow: rgb(255 255 255 / 30%) 0px 0px 25px,
+    rgb(254 254 254 / 20%) 0px 0px 40px; */
+    box-shadow: rgb(37 37 41) 0px 0px 25px, rgb(254 254 254 / 20%) 0px 0px 40px;
+}
+
+#header {
+  color: grey;
+  font-weight: bold;
+  text-align: center;
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 5px;
+}
+
+#form-body {
+  display: flex;
+}
+
+.row1 {
+  display: flex;
+  width: 514px;
+}
+.col1 {
+  width: 50%;
+}
+#firstname {
+  background-color: black;
+  width: 218px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  color: grey;
+  margin-left: -2px;
+  margin-top: 5px;
+}
+#firstname::placeholder{
+  color: grey;
+  font-weight: bold;
+}
+.col2 {
+  width: 50%;
+}
+#lastname {
+  background-color: black;
+  width: 218px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  color: grey;
+  margin-top: 5px;
+}
+
+#lastname::placeholder{
+  color: grey;
+  font-weight: bold;
+}
+.label-first {
+  color: grey;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.label-last {
+  color: grey;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.email-field {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.lables {
+  color: grey;
+  padding-left: 13px;
+  padding-bottom: 7px;
+}
+
+#email2 {
+  background-color: black;
+  width: 484px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  color: grey;
+  margin-left: 6px;
+}
+
+#email2::placeholder{
+  color: grey;
+  font-weight: bold;
+}
+
+.pass-field {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+#password2 {
+  background-color: black;
+  width: 484px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  color: grey;
+  margin-left: 6px;
+}
+
+#password2::placeholder{
+  color: grey;
+  font-weight: bold;
+}
+
+#show1 {
+  float: right;
+  /* margin-top: -32px; */
+  position: relative;
+  top: -38px;
+  left: -11px;
+  right: 0px;
+  bottom: 0px;
+  height: 36px;
+  /* background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(41 41 41) 96.86%); */
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #808080;
+  border: none;
+  width: 53px;
+  cursor: pointer;
+  /* border: 1px solid; */
+}
+#show1:hover {
+  background-color: grey;
+  color: white;
+}
+.login-opt {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  color: grey;
+}
+
+.a-login {
+  color: grey;
+  margin-left: 8px;
+}
+
+.a-login:hover {
+  color: rgb(165, 164, 164);
+}
+
+#signup-btn {
+  cursor: pointer;
+  width: 50%;
+  border-radius: 5px;
+  background-color: black;
+  color: grey;
+  font-weight: bold;
+  height: 30px;
+  transition: transform 0.2s;
+  margin-top: 20px;
+}
+
+#signup-btn:hover {
+  transform: scale(1.05);
+  /* box-shadow: rgb(255 249 249 / 30%) 0px 0px 25px,
+    rgb(255 255 255 / 20%) 0px 0px 40px; */
+    box-shadow: rgb(37 37 41) 0px 0px 25px, rgb(254 254 254 / 20%) 0px 0px 40px;
+}
+
+#form-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  /* border-top: 1px solid black; */
+}
