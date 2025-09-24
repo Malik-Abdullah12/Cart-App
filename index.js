@@ -6,9 +6,10 @@ const button = document.getElementById("submitbtn");
 // const message = document.getElementById("message");
 const show_button = document.getElementById("show");
 
-let output = [];
+// let output = [];
 
 button.addEventListener("click", (event) => {
+
   event.preventDefault();
 
   let userval = inputfeild.value.trim();
@@ -43,13 +44,10 @@ button.addEventListener("click", (event) => {
   );
 
   if (existinguser) {
-    alert(`✅ Welcome back, ${userval}! You are logged in.`);
+    location.href = "cart-home.html";
+    
   } else {
-    let newuser = { username: userval, password: userpass };
-    users.push(newuser);
-
-    localStorage.setItem("users", JSON.stringify(users));
-    alert(`welcome ${userval} Ur Account is created`);
+    alert("ID Not Found")
   }
 
   inputfeild.value = "";
@@ -66,3 +64,6 @@ show_button.addEventListener("click", (event) => {
     password1.type = "password";
   }
 });
+
+
+
