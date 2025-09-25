@@ -54,6 +54,7 @@ button.addEventListener("click", (event) => {
   password1.value = "";
 });
 
+
 show_button.addEventListener("click", (event) => {
   event.preventDefault();
   if (password1.type === "password") {
