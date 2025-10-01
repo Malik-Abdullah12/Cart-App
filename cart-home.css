@@ -174,9 +174,6 @@ background-color: grey;
 
 
 
-
-
-
 .catogries{
   display: none;
   position: absolute;
@@ -193,7 +190,7 @@ background-color: grey;
   text-decoration: none;
   text-align: center;
   /* margin: 10px; */
-  padding: 4px;
+  padding: 5px;
   color: white;
   
 }
@@ -201,6 +198,10 @@ background-color: grey;
 .catogries a:hover{
   background-color: #888888;
 
+}
+
+.all{
+  border-bottom: 2px solid grey;
 }
 
 
