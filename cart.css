@@ -67,3 +67,107 @@ body {
 #sign-out-link:hover{
   color: #afafaf;
 }
+
+
+/* ////////////////////////////////////////////////////// */
+#cart-container {
+  width: 70%;
+  margin: 50px auto;
+  background-color: #262626;
+  border-radius: 10px;
+  padding: 20px 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== Cart Header ========== */
+#cart-container h2 {
+  color: #5b7bfa;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+/* ========== Each Cart Row ========== */
+.obj-col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3a3a3a;
+  padding: 15px 0;
+}
+
+.obj-col img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+/* ========== Product Info ========== */
+.obj-col h5 {
+  color: #d4d4d4;
+  font-size: 18px;
+  margin: 0;
+}
+
+.obj-col p {
+  color: #b0b0b0;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* ========== Quantity Controls ========== */
+.cart-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-btn-container button {
+  background-color: #3a3a3a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cart-btn-container input {
+  background-color: #444;
+  border: none;
+  width: 40px;
+  text-align: center;
+  color: white;
+  margin: 0 5px;
+  border-radius: 4px;
+}
+
+/* ========== Price & Delete Button ========== */
+.price {
+  color: #b0b0b0;
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.delete-btn {
+  background-color: #a92626;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #e64545;
+}
+
+/* ========== Total Section ========== */
+#total-section {
+  text-align: right;
+  margin-top: 25px;
+  color: #5b7bfa;
+  font-size: 18px;
+  font-weight: 600;
+}

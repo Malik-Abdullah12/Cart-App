@@ -21,6 +21,17 @@ const products = [
                     {id:10, name:"Xioami 3 ",            image: "Images/cart-pic2.jpg", price:190,  category:"watch"}
 ];
 
+// Local storage functions and setter and getter --------------;
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+// const cart = []
+
+// let users = JSON.parse(localStorage.getItem("users")) || [];
+
+function save(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 
 // --------------------------------------display function---------------
 
@@ -91,9 +102,25 @@ showdiv.addEventListener("click", (event)=>{
 // Add to cart function  --------------------------
 row1.addEventListener("click", (event)=>{
     if(event.target.classList.contains("cart-btn")){
+
         const productid = parseInt(event.target.dataset.id)
-        // const objid =  products.find((item)=> item.id === productid)
-        console.log("ID == ",productid)
+
+        const product = products.find((item)=> item.id === productid)
+        const existingitem =  cart.find((item)=> item.id === productid)
+  
+        // console.log("ID == ",productid)
+        if(existingitem){
+            existingitem.quantity += 1;
+            // console.log(cart)
+            
+            
+        }
+        else{
+            cart.push({ ...product, quantity: 1 });
+        }
+        
+        save(cart)
+
     }
 });
 
