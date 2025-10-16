@@ -1,6 +1,6 @@
 const main = document.getElementById("cart-container")
 
-const cartitem = JSON.parse(localStorage.getItem("cart")) || [];
+let cartitem = JSON.parse(localStorage.getItem("cart")) || [];
 
 function save(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -29,10 +29,10 @@ function displaycart(item){
       <input type="text" value="${item.quantity}" readonly>
       <button  class="plus" data-id="${item.id}">+</button>
       <span class="price">$${item.price.toFixed(2)}</span>
-      <button class="delete-btn">Delete</button>
+      <button class="delete-btn">Proceed to pay</button>
     </div>
 
-    <div style="color:#5b7bfa;">Rs.275500</div>
+    <div style="color:#5b7bfa;">Rs.${item.quantity*item.price.toFixed(2)}</div>
   </div>
         `
 
@@ -69,6 +69,32 @@ plus.forEach(item =>
 
         })
 });
+
+
+
+minus.forEach(item =>
+     {
+        item.addEventListener("click",(event)=>{
+            const productid = parseInt(event.target.dataset.id)
+            const item = cartitem.find((item)=> item.id === productid)
+
+            if(item && item.quantity>1){
+                item.quantity -= 1 ;
+                save(cartitem)
+                displaycart(cartitem)
+                
+            }
+            else{
+               cartitem = cartitem.filter((u)=> u.id !== productid)
+                save(cartitem)
+                displaycart(cartitem)
+            }
+
+
+        })
+});
+
+
 }
 
 displaycart(cartitem)
