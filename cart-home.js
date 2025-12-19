@@ -1,144 +1,116 @@
-// ----------------------------------Constants
-
+// ------------------ Constants  ---------------------------------
 const row1 = document.getElementById("row1")
-const mobile = document.querySelector(".mobile")
-
-// dropdown  toggle ----------------
 const showdiv = document.querySelector(".catogries")
 const catbtn = document.getElementById("dropdown-button")
 
-// --------------------------------------Products---------------
+// ------------------ Products ; ------------------------
 const products = [
-                    {id:1 , name:"S25 Ultra",            image: "Images/cart-pic2.jpg", price:2000,  category:"mobile"},
-                    {id:2 , name:"Iphone 15",            image: "Images/cart-pic2.jpg", price:1000,  category:"mobile"},
-                    {id:3 , name:"Redmi 13",             image: "Images/cart-pic2.jpg", price:900,  category:"mobile"},
-                    {id:4 , name:"Poco x3",              image: "Images/cart-pic2.jpg", price:500,  category:"mobile"},
-                    {id:5 , name:"Xpro magic",           image: "Images/cart-pic2.jpg", price:3000,  category:"laptop"},
-                    {id:6 , name:"Mackbook pro",         image: "Images/cart-pic2.jpg", price:2000,  category:"laptop"},
-                    {id:7 , name:"legion x3",            image: "Images/cart-pic2.jpg", price:1500,  category:"laptop"},
-                    {id:8 , name:"Watch Ultra 5 ",       image: "Images/cart-pic2.jpg", price:200,  category:"watch"},
-                    {id:9 , name:"Samsung gear S3",      image: "Images/cart-pic2.jpg", price:200,  category:"watch"},
-                    {id:10, name:"Xioami 3 ",            image: "Images/cart-pic2.jpg", price:190,  category:"watch"}
-];
+  { id: 1, name: "S25 Ultra",       image: "Images/cart-pic2.jpg", price: 2000, category: "mobile" },
+  { id: 2, name: "Iphone 15",       image: "Images/cart-pic2.jpg", price: 1000, category: "mobile" },
+  { id: 3, name: "Redmi 13",        image: "Images/cart-pic2.jpg", price: 900, category: "mobile" },
+  { id: 4, name: "Poco x3",         image: "Images/cart-pic2.jpg", price: 500, category: "mobile" },
+  { id: 5, name: "Xpro magic",      image: "Images/cart-pic2.jpg", price: 3000, category: "laptop" },
+  { id: 6, name: "Mackbook pro",    image: "Images/cart-pic2.jpg", price: 2000, category: "laptop" },
+  { id: 7, name: "legion x3",       image: "Images/cart-pic2.jpg", price: 1500, category: "laptop" },
+  { id: 8, name: "Watch Ultra 5",   image: "Images/cart-pic2.jpg", price: 200, category: "watch" },
+  { id: 9, name: "Samsung gear S3", image: "Images/cart-pic2.jpg", price: 200, category: "watch" },
+  { id: 10, name: "Xiaomi 3",       image: "Images/cart-pic2.jpg", price: 190, category: "watch" }
+]
 
-// Local storage functions and setter and getter --------------;
+// ------------------ Cart Localstorage -------------------------------------
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+let currentlist = products
 
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-// const cart = []
-
-// let users = JSON.parse(localStorage.getItem("users")) || [];
-
-function save(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart))
 }
 
+// ------------------------------------- Render Function ------------------
+function renderProducts(list) {
+  row1.innerHTML = ""
 
-// --------------------------------------display function---------------
+  list.forEach(product => {
+    const item = cart.find(c => c.id === product.id)
 
-function display(products){
-    // const mobile = products.filter(item => item.category === "mobile")
-    products.forEach((product) =>
-    {
-        const productContainer = document.createElement("div");
-        productContainer.className = "obj-col";
+    row1.innerHTML += `
+      <div class="obj-col">
+        <img src="${product.image}" width="170" height="112">
+        <h5>${product.name}</h5>
+        <p>$${product.price}</p>
 
-        productContainer.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" width="170px"  height="112px"/>
-            <h5>${product.name}</h5>    
-            <p>Rs.$${product.price.toFixed(2)}</p>
-            <div class="cart-btn-container"> <button class="cart-btn"  data-id="${product.id}">Add to cart</button></div>
+        ${
+          item
+            ? `
+              <div class="controls">
+                <button class="minus" data-id="${product.id}">-</button>
+                <span class="qty">${item.quantity}</span>
+                <button class="plus" data-id="${product.id}">+</button>
+              </div>
             `
-
-        row1.appendChild(productContainer)
-
-});    
-}
-display(products)
-
-// --------------------------------------Render Function ---------------
-
-function display_render() {
-  row1
-    .querySelectorAll(".obj-col")
-    .forEach((item) => item.remove());
+            : `
+              <div class="cart-btn-container"> 
+              <button class="cart-btn"  data-id="${product.id}"> Add to cart</button></div>
+            `
+        }
+      </div>
+    `
+  })
 }
 
+// --------------------------------- Event Handlers----------------------
+row1.addEventListener("click", (e) => {
+  const id = Number(e.target.dataset.id)
+  if (!id) return
 
-//  DROp down menu click checker and function  : ---------------------------------
+  // Add to cart logic: 
+  if (e.target.classList.contains("cart-btn")) {
+    const product = products.find(p => p.id === id)
+    cart.push({ ...product, quantity: 1 })
+  }
 
-showdiv.addEventListener("click", (event)=>{
-    if(event.target.classList.contains("mobile")){
-        // console.log("clicked" , event.target);
-        const mobile = products.filter(item => item.category === "mobile")
-        display_render()
-        display(mobile)
-        // dropdowntoggle(mobile)
-        
+  // Plus logic 
+  if (e.target.classList.contains("plus")) {
+    cart.find(item => item.id === id).quantity++
+  }
+
+  // Minus logic
+  if (e.target.classList.contains("minus")) {
+    const item = cart.find(item => item.id === id)
+    item.quantity--
+
+    if (item.quantity === 0) {
+      cart = cart.filter(i => i.id !== id)
     }
+  }
 
-    else if (event.target.classList.contains("all")){
-        // console.log("clicked" , event.target);
-        display_render()
-        display(products)
-    }
-    
-    else if (event.target.classList.contains("laptop")){
-        // console.log("clicked" , event.target);
-        const laptop = products.filter(item => item.category === "laptop")
-        display_render()
-        display(laptop)
-    }
+  saveCart()
+  renderProducts(currentlist)
+})
 
-    else if (event.target.classList.contains("watch")){
-        // console.log("clicked" , event.target);
-        const watch = products.filter(item => item.category === "watch")
-        display_render()
-        display(watch)
-    }
+// --------------------------------- Filter function ------------------
+showdiv.addEventListener("click", (e) => {
+  if (e.target.classList.contains("mobile")) {
+    currentlist = products.filter(p => p.category === "mobile")
+  }
+  if (e.target.classList.contains("laptop")) {
+    currentlist = products.filter(p => p.category === "laptop")
+  }
+  if (e.target.classList.contains("watch")) {
+    currentlist = products.filter(p => p.category === "watch")
+  }
+  if (e.target.classList.contains("all")) {
+    currentlist = products
+  }
 
-    
-});
+  renderProducts(currentlist)
+})
 
-// Add to cart function  --------------------------
-row1.addEventListener("click", (event)=>{
-    if(event.target.classList.contains("cart-btn")){
+// -------------------------- dropdown toggle fucntion  ------------------
+catbtn.addEventListener("click", () => {
+  showdiv.classList.toggle("show")
+})
 
-        const productid = parseInt(event.target.dataset.id)
-
-        const product = products.find((item)=> item.id === productid)
-        const existingitem =  cart.find((item)=> item.id === productid)
-  
-        // console.log("ID == ",productid)
-        if(existingitem){
-            existingitem.quantity += 1;
-            // console.log(cart)
-            
-            
-        }
-        else{
-            cart.push({ ...product, quantity: 1 });
-        }
-        
-        save(cart)
-
-    }
-});
-
-// function addtocart(){
-
-// }
-
-
-
-
-
-// Dropdown toggle --------------------------
-
-catbtn.addEventListener("click", ()=>{
-
-    showdiv.classList.toggle("show");
-
-
-});
+// ------------------------- Initital Render ------------------
+renderProducts(currentlist)
 
 

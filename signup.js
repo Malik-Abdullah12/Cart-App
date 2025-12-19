@@ -15,6 +15,9 @@ function save(users) {
   localStorage.setItem("users", JSON.stringify(users));
 }
 
+function maskPassword(pass) {
+  return "•".repeat(pass.length); 
+}
 
 // Sign up button checks ----------------------
 button.addEventListener("click", (event)=> {
@@ -59,9 +62,17 @@ button.addEventListener("click", (event)=> {
     return;
   }
 
+  // else if (userval===values.username) {
+  //   alert("Email is Already in use")
+  // }
+
+  if(users.some(u=>u.username === userval)){
+    alert("Email is already in use")
+  }
+
   else{
     alert("Your Account has been created ")
-
+  // let mask = maskPassword(userpass)  
   let values = {
     username:userval, 
     password:userpass

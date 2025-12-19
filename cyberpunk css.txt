@@ -1,0 +1,262 @@
+/* ------------------ Global ------------------ */
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top, #1a002a, #050008 70%);
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0ff;
+  overflow-x: hidden;
+}
+
+/* ------------------ Header ------------------ */
+.Header{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 3.5em;
+  align-items: center;
+  background: linear-gradient(90deg, #12001f, #1b0033);
+  box-shadow: 0 0 15px #9f00ff;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #00fff0;
+  text-shadow: 0 0 10px #00fff0;
+  margin-left: -66px;
+}
+
+.logo img{
+  height: 72px;
+  width: auto;
+}
+
+#nav-bar{
+  display: flex;
+}
+
+#nav-bar-link{
+  font-size: 1.25rem;
+  margin-left: -35px;
+}
+
+.nav-link{
+  color: #a0a0ff;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #00fff0;
+  transition: 0.3s;
+}
+
+.nav-link:hover{
+  color: #00fff0;
+  text-shadow: 0 0 8px #00fff0;
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+.nav-link[href="cart-home.html"]{
+  color: #ff00ff;
+  font-weight: bold;
+}
+
+#sign-out-link{
+  text-decoration: none;
+  color: white;
+  font-size: 1.15em;
+}
+
+#sign-out-link:hover{
+  color: #afafaf;
+}
+
+/* ------------------ Container ------------------ */
+#Container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  width: 100%;
+}
+
+/* ------------------ Dropdown ------------------ */
+#root-dropdown-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.dropbutton-d1{
+  width: 1116px;
+  height: 40px;
+  background: linear-gradient(135deg, #29003d, #3f0066);
+  color: #00fff0;
+  border: 1px solid #00fff0;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0,255,240,0.4);
+}
+
+.dropbutton-d1:hover{
+  background: #3f0066;
+  box-shadow: 0 0 18px #00fff0;
+}
+
+.dropbutton-d1::after{
+  display: inline-block;
+  margin-bottom: -2px;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+}
+
+/* ------------------ Product Row ------------------ */
+#row1{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 114px;
+  margin-right: 85px;
+}
+
+.obj-col{
+  width: 172px;
+  height: 230px;
+  margin-top: 15px;
+  padding: 14px;
+  color: #cfd4ff;
+  background: linear-gradient(145deg, #12001f, #1c0030);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.obj-col:hover{
+  box-shadow: 0 0 15px #00fff0, 0 0 30px rgba(0,255,240,0.3);
+  transform: translateY(-5px);
+}
+
+.obj-col h5, .obj-col p{
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.obj-col img{
+  display: block;
+  width: 170px;
+  height: 112px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255,0,255,0.4);
+}
+
+/* ------------------ Cart Button ------------------ */
+.cart-btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+.cart-btn{
+  padding: 7px 14px;
+  border: 1px solid #ff00ff;
+  border-radius: 5px;
+  cursor: pointer;
+  background: transparent;
+  color: #ff00ff;
+  text-shadow: 0 0 6px #ff00ff;
+  transition: 0.3s;
+}
+
+.cart-btn:hover{
+  background: #ff00ff;
+  color: black;
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+/* ------------------ Quantity Controls ------------------ */
+.controls{
+  display: block;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  right: -45px;
+}
+
+.minus, .plus{
+  background: transparent;
+  border: 1px solid #00fff0;
+  color: #00fff0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,255,240,0.4);
+}
+
+.minus:hover, .plus:hover{
+  background: #00fff0;
+  color: black;
+}
+
+.qty{
+  background: #140022;
+  border: 1px solid #ff00ff;
+  color: #ff00ff;
+  width: 40px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+/* ------------------ Categories Dropdown ------------------ */
+.catogries{
+  display: none;
+  position: absolute;
+  background: linear-gradient(180deg, #1c0030, #12001f);
+  min-width: 160px;
+  box-shadow: 0 0 20px rgba(0,255,240,0.4);
+  z-index: 1;
+  top: 92px;
+  border-radius: 2px;
+}
+
+.catogries a{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  color: white;
+}
+
+.catogries a:hover{
+  background: #00fff0;
+  color: black;
+}
+
+.all{
+  border-bottom: 2px solid grey;
+}
+
+/* ------------------ Show/Hide ------------------ */
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}

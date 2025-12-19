@@ -164,10 +164,34 @@ body {
 }
 
 /* ========== Total Section ========== */
-#total-section {
-  text-align: right;
-  margin-top: 25px;
-  color: #5b7bfa;
-  font-size: 18px;
-  font-weight: 600;
+#total {
+  display: flex;
+    margin-top: -5px;
+    margin-right: 156px;
+    color: #5b7bfa;
+    font-size: 18px;
+    font-weight: 600;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#payment{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 156px;
+  margin-top: 10px;
+
+}
+
+.PtoP{
+  background-color: #3a3a3a;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.PtoP:hover {
+  background-color: #e64545;
 }

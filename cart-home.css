@@ -173,7 +173,6 @@ background-color: grey;
 }
 
 
-
 .catogries{
   display: none;
   position: absolute;
@@ -204,7 +203,51 @@ background-color: grey;
   border-bottom: 2px solid grey;
 }
 
-
+/* All category shower  */
 .show{
   display: block;
 }
+.hide{
+  display: none;
+}
+
+
+.controls{
+  display: block;
+    align-items: center;
+    position: relative;
+    top: 0px;
+    right: -45px;
+}
+
+.minus{
+  background-color: #3a3a3a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.plus{
+  background-color: #3a3a3a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.qty{
+  background-color: #444;
+    border: none;
+    width: 40px;
+    text-align: center;
+    color: white;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+
