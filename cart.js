@@ -8,6 +8,7 @@ function save(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// ============================Total Price function========================
 function TotalPrice(cart){
   let sum = 0
   cart.forEach((item)=>{
@@ -19,7 +20,39 @@ function TotalPrice(cart){
     Total : $${sum.toFixed(2)}`
 }
 
+// =========================Signout Function  ============================
+let signout = document.getElementById("sign-out-link")
+signout.addEventListener("click",()=>{
+  showToast("Signing Out")
+  setTimeout(() => {
+    location.href = "index.html"
+  }, 800);
+});
 
+//-----------------------Toastify function --------------------------
+function showToast(message, bg = "#00b09b") {
+  Toastify({
+    text: message,
+    duration: 2000,
+    gravity: "bottom",
+    position: "center",
+    close: true,
+    style: {
+       background: "linear-gradient(180deg, #111, #070707)",
+      color: "var(--neon)",
+      border: "1px solid rgba(255, 212, 0, 0.35)",
+      borderRadius: "var(--radius)",
+      boxShadow: "0 0 15px rgba(255, 212, 0, 0.6)",
+      fontFamily: '"Orbitron", "Inter", sans-serif',
+      fontWeight: "700",
+      letterSpacing: "0.5px",
+      padding: "14px 18px",
+    },
+    stopOnFocus: true,
+  }).showToast();
+}
+
+// ================================================Display Function==========================
 function displaycart(item){
     main.innerHTML = "<h2>Cart</h2>"
 
@@ -45,10 +78,10 @@ function displaycart(item){
             <input type="text" value="${item.quantity}" readonly>
             <button class="plus" data-id="${item.id}">+</button>
             <span class="price">$${item.price.toFixed(2)}</span>
-            <button class="delete-btn" data-id="${item.id}">Delete</button>
+            <button class="delete-btn" data-id="${item.id}"></button>
           </div>
 
-          <div style="color:#5b7bfa;">
+          <div style="color: var(--neon);">
             $${(item.price * item.quantity).toFixed(2)}
           </div>
         </div>
@@ -59,6 +92,7 @@ function displaycart(item){
 
     TotalPrice(item)
 }
+
 
 main.addEventListener("click" ,(e)=>{
   const id = parseInt(e.target.dataset.id)

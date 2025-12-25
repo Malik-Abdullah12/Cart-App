@@ -1,201 +1,194 @@
+/* ================= CYBER VARIABLES ================= */
+:root {
+  --bg: #000;
+  --panel: #0d0d0d;
+  --neon: #ffd400;
+  --neon-soft: rgba(255, 212, 0, 0.25);
+  --text: #e6e6e6;
+  --muted: #888;
+  --radius: 14px;
+  --border: 1px solid rgba(255, 212, 0, 0.4);
+  --glow: 0 0 18px rgba(255, 212, 0, 0.6);
+}
+
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box; /* This is the most important fix for layout scattering */
+}
+
+/* ================= BODY ================= */
 body {
-  margin: 0px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  /* background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(62 62 62) 96.86%); */
-  background-color: rgba(33,37,41,1);
+  font-family: "Orbitron", "Inter", sans-serif;
+  color: var(--text);
+  overflow: hidden;
 }
 
+/* ================= SIGNUP CARD ================= */
 #signup-form-container {
-  /* width: 400px;
-  height: 400px; */
-  width: 514px;
-  height: 472px;
-  border-radius: 20px;
-  background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(41 41 41) 96.86%);
-  border: none;
-  /* text-align: center; */
-  transition: transform 0.3s;
+  width: 520px;
+  padding: 30px;
+  background: linear-gradient(180deg, #111, #050505);
+  border-radius: var(--radius);
+  border: var(--border);
+  box-shadow: var(--glow);
+  transition: 0.3s ease;
 }
+
 #signup-form-container:hover {
   transform: translateY(-8px);
-  /* box-shadow: rgb(255 255 255 / 30%) 0px 0px 25px,
-    rgb(254 254 254 / 20%) 0px 0px 40px; */
-    box-shadow: rgb(37 37 41) 0px 0px 25px, rgb(254 254 254 / 20%) 0px 0px 40px;
 }
 
-#header {
-  color: grey;
-  font-weight: bold;
+/* ================= HEADER ================= */
+#header h2 {
   text-align: center;
-  /* border-bottom: 1px solid black; */
-  margin-bottom: 5px;
+  color: var(--neon);
+  text-shadow: var(--glow);
+  margin-top: 0;
 }
 
-#form-body {
-  display: flex;
-}
-
+/* ================= FORM LAYOUT ================= */
 .row1 {
   display: flex;
-  width: 514px;
-}
-.col1 {
-  width: 50%;
-}
-#firstname {
-  background-color: black;
-  width: 218px;
-  height: 25px;
-  padding: 5px;
-  border-radius: 5px;
-  color: grey;
-  margin-left: -2px;
-  margin-top: 5px;
-}
-#firstname::placeholder{
-  color: grey;
-  font-weight: bold;
-}
-.col2 {
-  width: 50%;
-}
-#lastname {
-  background-color: black;
-  width: 218px;
-  height: 25px;
-  padding: 5px;
-  border-radius: 5px;
-  color: grey;
-  margin-top: 5px;
+  gap: 15px; /* Creates clean space between columns */
+  margin-bottom: 20px;
 }
 
-#lastname::placeholder{
-  color: grey;
-  font-weight: bold;
-}
-.label-first {
-  color: grey;
-  display: flex;
-  flex-direction: column;
-  margin-left: 8px;
-}
-
-.label-last {
-  color: grey;
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-}
-
-.email-field {
-  margin-top: 25px;
+.col1, .col2 {
+  flex: 1; /* Ensures both columns are equal width */
   display: flex;
   flex-direction: column;
 }
+
+/* ================= LABELS ================= */
+.label-first,
+.label-last,
 .lables {
-  color: grey;
-  padding-left: 13px;
-  padding-bottom: 7px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: block;
 }
 
-#email2 {
-  background-color: black;
-  width: 484px;
-  height: 25px;
-  padding: 5px;
-  border-radius: 5px;
-  color: grey;
-  margin-left: 6px;
+/* ================= INPUTS ================= */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background: black;
+  border: var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--neon);
+  width: 100%; /* Stays exactly 100% due to border-box */
+  outline: none;
+  transition: 0.3s;
 }
 
-#email2::placeholder{
-  color: grey;
-  font-weight: bold;
+input:focus {
+  border-color: var(--neon);
+  box-shadow: 0 0 10px var(--neon-soft);
 }
 
+input::placeholder {
+  color: var(--muted);
+}
+
+/* ================= EMAIL & PASSWORD WRAPPERS ================= */
+.email-field,
 .pass-field {
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-}
-#password2 {
-  background-color: black;
-  width: 484px;
-  height: 25px;
-  padding: 5px;
-  border-radius: 5px;
-  color: grey;
-  margin-left: 6px;
+  position: relative; /* CRITICAL: Anchors the absolute button */
 }
 
-#password2::placeholder{
-  color: grey;
-  font-weight: bold;
+/* ================= SHOW BUTTON FIX ================= */
+.show-btn {
+  position: absolute;
+  right: 0px;
+  bottom: 1px; /* Perfectly aligns inside the input box height */
 }
 
 #show1 {
-  float: right;
-  /* margin-top: -32px; */
-  position: relative;
-  top: -38px;
-  left: -11px;
-  right: 0px;
-  bottom: 0px;
-  height: 36px;
-  /* background: linear-gradient(149deg, rgb(0 0 0) 0%, rgb(41 41 41) 96.86%); */
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #808080;
-  border: none;
-  width: 53px;
+  background: rgba(255, 212, 0, 0.1);
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  padding: 4px 10px;
+  border-radius: 6px;
   cursor: pointer;
-  /* border: 1px solid; */
+  font-size: 0.7rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  height: 2.5rem;
+    width: 4.1rem;
 }
+
 #show1:hover {
-  background-color: grey;
-  color: white;
+  background: var(--neon);
+  color: black;
 }
+
+/* ================= LOGIN LINK ================= */
 .login-opt {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 10px;
-  color: grey;
+  margin-top: 20px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .a-login {
-  color: grey;
-  margin-left: 8px;
+  color: var(--neon);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .a-login:hover {
-  color: rgb(165, 164, 164);
+  text-shadow: var(--glow);
+  text-decoration: underline;
 }
 
-#signup-btn {
-  cursor: pointer;
-  width: 50%;
-  border-radius: 5px;
-  background-color: black;
-  color: grey;
-  font-weight: bold;
-  height: 30px;
-  transition: transform 0.2s;
-  margin-top: 20px;
-}
-
-#signup-btn:hover {
-  transform: scale(1.05);
-  /* box-shadow: rgb(255 249 249 / 30%) 0px 0px 25px,
-    rgb(255 255 255 / 20%) 0px 0px 40px; */
-    box-shadow: rgb(37 37 41) 0px 0px 25px, rgb(254 254 254 / 20%) 0px 0px 40px;
-}
-
+/* ================= SIGNUP BUTTON ================= */
 #form-footer {
   display: flex;
   justify-content: center;
-  margin-top: 8px;
-  /* border-top: 1px solid black; */
+  margin-top: 30px;
+}
+
+#signup-btn {
+  background: transparent;
+  border: 2px solid var(--neon);
+  color: var(--neon);
+  padding: 12px 60px;
+  border-radius: var(--radius);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--glow);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+#signup-btn:hover {
+  background: var(--neon);
+  color: black;
+  box-shadow: 0 0 30px var(--neon);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  #signup-form-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .row1 {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

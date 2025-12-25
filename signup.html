@@ -9,6 +9,7 @@
     <title>Cart App</title>
     <!-------------------- Links ------------------------------->
     <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body>
     <!----------------------------------------------------- Main container  ------------------------------->
@@ -17,60 +18,41 @@
       <div id="header"><h2>Register</h2></div>
       <!----------------------------------------------------- Form Body ------------------------------->
       <div id="form-body">
-        <form>
-          <div class="row1">
-            <div class="col1">
-              <label for="firstname" class="label-first"
-                ><strong>First Name</strong>
-                <input
-                  type="text"
-                  name="firstname"
-                  id="firstname"
-                  placeholder="First Name"
-                />
-              </label>
-            </div>
-            <div class="col2">
-              <label for="lastname" class="label-last">
-                <strong>Last Name</strong>
-                <input
-                  type="text"
-                  name="lastname"
-                  id="lastname"
-                  placeholder="Last Name"
-              /></label>
-            </div>
-          </div>
-
-          <div class="email-field">
-            <label for="email2" class="lables"><strong>Email</strong></label>
-            <input type="email" name="email" id="email2" placeholder="Email" />
-          </div>
-
-          <div class="pass-field">
-            <label for="password2" class="lables"
-              ><strong>Password</strong></label
-            >
-            <input
-              type="password"
-              name="password"
-              id="password2"
-              placeholder="Password"
-            />
-            <div class="show-btn"><button id="show1">show</button></div>
-          </div>
-          <div class="login-opt">
-            Already have an account?
-            <a href="index.html" class="a-login">Login</a>
-          </div>
-          <!----------------------------------------------------- Form footer ------------------------------->
-          <div id="form-footer">
-            <input type="submit" value="Sign Up" id="signup-btn" />
-          </div>
-        </form>
+  <form>
+    <div class="row1">
+      <div class="col1">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" placeholder="First Name" />
+      </div>
+      <div class="col2">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" placeholder="Last Name" />
       </div>
     </div>
 
+    <div class="email-field">
+      <label for="email2">Email</label>
+      <input type="email" id="email2" placeholder="Email" />
+    </div>
+
+    <div class="pass-field">
+      <label for="password2">Password</label>
+      <input type="password" id="password2" placeholder="Password" />
+      <div class="show-btn"><button type="button" id="show1">show</button></div>
+    </div>
+
+    <div class="login-opt">
+      Already have an account? <a href="index.html" class="a-login">Login</a>
+    </div>
+
+    <div id="form-footer">
+      <input type="submit" value="Sign Up" id="signup-btn" />
+    </div>
+  </form>
+</div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="signup.js"></script>
   </body>
 </html>

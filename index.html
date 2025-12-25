@@ -9,6 +9,8 @@
     <title>Cart App</title>
     <!-------------------- Links --------------------->
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
   </head>
 
   <body>
@@ -25,13 +27,14 @@
           /><br />
         </label>
 
+        <div class="input-group">
         <label for="password1" id="label-pass"
           >Password <br />
           <input type="password" id="password1" class="form-field"  placeholder="plz enter password"
           /><br />
           <button id="show">show</button>
         </label>
-
+        </div>
         <!------------------------------------------------------- Form footer ------------------------------------->
         <div class="login-button">
           <input type="submit" value="Login" id="submitbtn" />
@@ -44,6 +47,7 @@
     </div>
 
     <!----------------------------------------------------- Script ------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="index.js"></script>
   </body>
 </html>
