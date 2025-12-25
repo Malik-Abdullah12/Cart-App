@@ -31,8 +31,15 @@ const button = document.getElementById("submitbtn");
 // const message = document.getElementById("message");
 const show_button = document.getElementById("show");
 
+// const signedinuser = [];
 // let output = [];
 
+function save(users) {
+  localStorage.setItem("signedinusers", JSON.stringify(users));
+}
+
+
+// =====================================================Event Handler =====================================
 button.addEventListener("click", (event) => {
 
   event.preventDefault();
@@ -78,7 +85,11 @@ button.addEventListener("click", (event) => {
     showToast("Incorrect password❌");
     return;
   }
-  
+
+  localStorage.setItem("LoggedInUser", JSON.stringify({
+    username:existinguser.username,
+  }));
+
   showToast("Login successful 🔓")
   setTimeout(() => {
     location.href = "cart-home.html";

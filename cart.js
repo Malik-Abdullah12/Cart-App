@@ -1,3 +1,10 @@
+let LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
+
+if(!LoggedInUser){
+  window.location.href = "index.html";
+}
+
+
 const main = document.getElementById("cart-container")
 
 let cartitem = JSON.parse(localStorage.getItem("cart")) || [];
@@ -23,6 +30,7 @@ function TotalPrice(cart){
 // =========================Signout Function  ============================
 let signout = document.getElementById("sign-out-link")
 signout.addEventListener("click",()=>{
+  localStorage.removeItem("LoggedInUser")
   showToast("Signing Out")
   setTimeout(() => {
     location.href = "index.html"

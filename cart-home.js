@@ -1,3 +1,9 @@
+let LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
+
+if(!LoggedInUser){
+  window.location.href = "index.html";
+}
+
 // ------------------ Constants  ---------------------------------
 const row1 = document.getElementById("row1")
 const showdiv = document.querySelector(".catogries")
@@ -53,6 +59,7 @@ function showToast(message, bg = "#00b09b") {
 // =========================Signout Function  ============================
 let signout = document.getElementById("sign-out-link")
 signout.addEventListener("click",()=>{
+  localStorage.removeItem("LoggedInUser")
   showToast("Signing Out")
   setTimeout(() => {
     location.href = "index.html"
