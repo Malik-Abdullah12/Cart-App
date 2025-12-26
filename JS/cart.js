@@ -10,6 +10,7 @@ const main = document.getElementById("cart-container")
 let cartitem = JSON.parse(localStorage.getItem("cart")) || [];
 
 const total = document.getElementById("total")
+let payment = document.getElementById("payment")
 
 function save(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -26,6 +27,23 @@ function TotalPrice(cart){
   total.innerHTML = `
     Total : $${sum.toFixed(2)}`
 }
+
+// =========================Payment Function  ============================
+payment.addEventListener("click",()=>{
+  if(cartitem.length===0){
+    showToast("Cart is Empty")
+    return;
+  }
+  showToast("Proceeding.....")
+  setTimeout(() => {
+    
+    location.href = "payment.html"
+  }, 1200);
+});
+
+
+
+
 
 // =========================Signout Function  ============================
 let signout = document.getElementById("sign-out-link")
