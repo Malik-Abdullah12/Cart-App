@@ -5,13 +5,13 @@ A lightweight and fully functional shopping cart web application built using HTM
 This project demonstrates core front-end concepts such as DOM manipulation, state management without frameworks, and client-side data persistence.
 
 🚀 Features:
- 🧾 Add products to cart
- ➕ Increase / ➖ decrease item quantity
- ❌ Remove items from cart
- 💾 Persistent cart data using LocalStorage
- 🔄 Cart state remains after page refresh
- 📱 Responsive and clean UI
- ⚡ Built with pure JavaScript (no libraries or frameworks)
+ * 🧾 Add products to cart
+ * ➕ Increase / ➖ decrease item quantity
+ * ❌ Remove items from cart
+ * 💾 Persistent cart data using LocalStorage
+ * 🔄 Cart state remains after page refresh
+ * 📱 Responsive and clean UI
+ * ⚡ Built with pure JavaScript (no libraries or frameworks)
 
 🛠️ Technologies Used
  * HTML5 – Structure of the application
@@ -20,13 +20,12 @@ This project demonstrates core front-end concepts such as DOM manipulation, stat
  * LocalStorage API – Client-side data storage
 
 📂 Project Structure:
-
-Cart-App/
-│
-├── index.html        # Main HTML file
-├── style.css         # Styling
-├── script.js         # Cart logic & LocalStorage handling
-└── README.md         # Project documentation
+* Cart-App/
+ │
+ ├── index.html        # Main HTML file
+ ├── style.css         # Styling
+ ├── script.js         # Cart logic & LocalStorage handling
+ └── README.md         # Project documentation
 
 📦 How It Works:
 * Products are dynamically rendered using JavaScript.
