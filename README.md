@@ -20,12 +20,14 @@ This project demonstrates core front-end concepts such as DOM manipulation, stat
  * LocalStorage API – Client-side data storage
 
 📂 Project Structure:
-* Cart-App/
- │
- ├── index.html        # Main HTML file
- ├── style.css         # Styling
- ├── script.js         # Cart logic & LocalStorage handling
- └── README.md         # Project documentation
+```bash
+Cart-App/
+│
+├── index.html        # Main HTML file
+├── style.css         # Styling
+├── script.js         # Cart logic & LocalStorage handling
+└── README.md         # Project documentation
+```
 
 📦 How It Works:
 * Products are dynamically rendered using JavaScript.
